@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article !{% endblock %}
+
+{% block body %}
+
+    <div>
+        <h3> No {{ article.id }} - {{ article.title }}</h3>
+        <p>{{ article.description }}</p>
+        <p> Créer le {{ article.date|date("d/m/Y") }} à {{ article.date|date("H:m") }}</p>
+    </div>
+
+    <h4> Commentaires </h4>
+
+    {% for comment in article.comments %}
+        <div>
+            <p>{{ comment.title }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock %}

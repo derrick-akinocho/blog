@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil {% endblock %}
+
+{% block body %}
+    {% for article in articles %}
+        <div>
+            <h3> No {{ article.id }} - {{ article.title }}</h3>
+            <p>{{ article.description }}</p>
+            <p> ({{ article.comments.count }}) Commentaire(s) <a href="{{ path('article', {'id':article.id}) }}">Voir</a> </p>
+
+        </div>
+    {% endfor %}
+
+{% endblock %}
+
