@@ -4,11 +4,20 @@
 
 {% block body %}
 
-    <div>
+    <div class="article">
         <h3> No {{ article.id }} - {{ article.title }}</h3>
         <p>{{ article.description }}</p>
         <p> Créer le {{ article.date|date("d/m/Y") }} à {{ article.date|date("H:m") }}</p>
     </div>
+
+    {% if app.user %}
+        <p> Ajouter un commentaire : </p>
+
+        {{ form(form) }}
+
+    {% else %}
+        <p> <a href="{{ path('app_register') }}">Se connecter</a> pour ajouter un commentaire. </p>
+    {% endif %}
 
     <h4> Commentaires </h4>
 
